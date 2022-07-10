@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import Translate, { translate } from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import styles from './HomepageFeatures.module.css';
+import indexStyles from '../pages/index.module.css';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const FeatureList = [
   {
@@ -52,42 +54,88 @@ function Feature({ Svg, title, description }) {
 }
 
 export default function HomepageFeatures() {
+  const { siteConfig } = useDocusaurusContext();
   return (
     <section className={styles.features}>
       <div className="container">
-        <p>
+        {/* <div className={styles.mycss}>
+          <h2>
+            <Translate
+              id="homepage.subTitle"
+              description="SRS is a simple, high efficiency and realtime video server, supports RTMP/WebRTC/HLS/HTTP-FLV/SRT."
+            >
+              SRS is a simple, high efficiency and realtime video server, supports RTMP/WebRTC/HLS/HTTP-FLV/SRT.
+            </Translate>
+          </h2>
+        </div> */}
+        {/* <p className={styles.mycss}>
           <Translate
             id="homepage.subTitle"
             description="SRS is a simple, high efficiency and realtime video server, supports RTMP/WebRTC/HLS/HTTP-FLV/SRT."
           >
             SRS is a simple, high efficiency and realtime video server, supports RTMP/WebRTC/HLS/HTTP-FLV/SRT.
           </Translate>
-        </p>
-        <p>
+        </p> */}
+        {/* <p>
           <img src="//ossrs.net/wiki/images/SRS-SingleNode-4.0-hd.png" />
-        </p>
-        <p>
-          <Translate
-            id="homepage.singleNode"
-            description="the picture of single node arch"
-            values={{
-              singleNode: (
-                <Link to="https://www.figma.com/file/333POxVznQ8Wz1Rxlppn36/SRS-4.0-Server-Arch">
-                  <Translate id="homepage.singleNodeLink" description="SRS-4.0-Server-Arch">
-                    SRS-4.0-Server-Arch
-                  </Translate>
-                </Link>
-              ),
-            }}
-          >
-            {'Note: The single node architecture for SRS, general and major use scenario, please see {singleNode}'}
-          </Translate>
-        </p>
-        <p>
+        </p> */}
+        <div className={styles.mycss}>
+          <div className={styles.inner}>
+            <h1>SRS</h1>
+            <h1>SRS is a simple, high efficiency and realtime video server.</h1>
+            <h1>supports RTMP/WebRTC/HLS/HTTP-FLV/SRT.</h1>
+            <div>
+              <Translate
+                id="homepage.singleNode"
+                description="the picture of single node arch"
+                values={{
+                  singleNode: (
+                    <Link to="https://www.figma.com/file/333POxVznQ8Wz1Rxlppn36/SRS-4.0-Server-Arch">
+                      <Translate id="homepage.singleNodeLink" description="SRS-4.0-Server-Arch">
+                        SRS-4.0-Server-Arch
+                      </Translate>
+                    </Link>
+                  ),
+                }}
+              >
+                {'Note: The single node architecture for SRS, general and major use scenario, please see {singleNode}'}
+              </Translate>
+            </div>
+            <div className={styles.buttons}>
+              <Link className="button button--secondary button--lg" to="/docs/v4/tutorial/learning-path">
+                {siteConfig.title}&nbsp;
+                {translate({ message: 'Tutorial', id: 'homepage.tutorial', description: 'Tutorial' })}
+              </Link>
+            </div>
+          </div>
+        </div>
+        {/* <p>
           <img src="//ossrs.net/wiki/images/SRS-Overview-4.0.png" />
-        </p>
+        </p> */}
+        <h3 className={styles.textAlignCenter}>
+          <Translate
+              id="homepage.overview"
+              description="Note: Please see {overview}"
+              values={{
+                overview: (
+                  <Link to="https://www.processon.com/view/link/5e3f5581e4b0a3daae80ecef">
+                    <Translate
+                      id="homepage.overviewLink"
+                      description="SRS-4.0-Overview And Large-Scale-Live-Streaming-Arch"
+                    >
+                      SRS-4.0-Overview And Large-Scale-Live-Streaming-Arch
+                    </Translate>
+                  </Link>
+                ),
+              }}
+            >
+              {
+                'Using SRS to publish、play streams and do protocol conversion etc, it helps you to build your own stable video server.'
+              }
+            </Translate>
+        </h3>
 
-        <p>
+        {/* <p>
           <Translate
             id="homepage.overview"
             description="Note: Please see {overview}"
@@ -108,7 +156,7 @@ export default function HomepageFeatures() {
               'Note: This is the typical architecture of origin cluster and edge cluster for scenarios require high concurrency, please see {overview}'
             }
           </Translate>
-        </p>
+        </p> */}
       </div>
     </section>
   );
